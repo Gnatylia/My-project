@@ -1,0 +1,46 @@
+.cart{
+    position: relative;
+   
+}
+
+.cart li{
+    list-style-type:none;
+    margin-bottom: 10px;
+}
+
+.cart ul{
+   padding: 0;
+    height: 300px;
+    overflow: auto;
+}
+
+.cartBottom{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.total{
+    margin-right: 50px;
+}
+
+.btnDelete{
+    margin-bottom: 40px;
+}
+
+.cart .order {
+    float: right;
+}
+
+.total {
+    margin-right: 170px;
+    float: left;
+    color: red;
+    font-size: large;
+}
+
+.searchMark{
+    border: 3px solid red;
+}
+
+
+

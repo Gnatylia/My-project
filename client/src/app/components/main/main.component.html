@@ -1,0 +1,10 @@
+<div class="main">
+        <app-login class="login"
+        *ngIf="!islogin"
+        ></app-login>
+        <app-welcome-shopping class="welcome"
+        *ngIf="islogin"
+        ></app-welcome-shopping>
+        <app-about class="about"></app-about>
+        <app-statistic class="stat"></app-statistic>
+</div>

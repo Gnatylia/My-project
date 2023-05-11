@@ -1,0 +1,22 @@
+<p>
+    <mat-toolbar color="primary">
+        <img src="/assets/images/logo.png" alt="logo" width="50px" height="50px">
+
+        <label class="storeLable">
+            <a href="/">
+                MartiStore
+            </a>
+        </label>
+        <p *ngIf="isLoginin" class="search">
+            <label>Search product</label>
+            <input placeholder="product name" autocomplete="off" (keyup)="searchChange($event)">
+            <mat-icon matSuffix>search</mat-icon>
+        </p>
+        <span class="example-spacer"></span>
+        <div class="hello">
+            <div>Hello {{name}}</div>
+            <button *ngIf="isLoginin" mat-button (click)="logout()">Logout</button>
+        </div>
+        
+    </mat-toolbar>
+</p>

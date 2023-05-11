@@ -1,0 +1,20 @@
+<div class="cart">
+
+    <ul *ngIf="cartItems && cartItems.length > 0">
+        <li *ngFor="let item of cartItems" class="{{item.mark}}">
+            <app-cart-item [itemCart]="item" [state]="state" (onRemove)="removeProduct($event)">
+            </app-cart-item>
+        </li>
+    </ul>
+    <div *ngIf="onOrder" class="btnDelete">
+        <button *ngIf="state == 'edit'" (click)="deleteCart(cartID)">Delete Cart</button>
+    </div>
+<br/>
+    <div class="cartBottom">
+        <div class="total">Total:&nbsp;{{total}}&nbsp;&#8362;</div>
+        <div *ngIf="onOrder" class="order">
+            <a *ngIf="state == 'edit'" href="mainOrder">Order
+            </a>
+        </div>
+    </div>
+</div>

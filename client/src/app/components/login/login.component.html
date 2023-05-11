@@ -1,0 +1,24 @@
+<form [formGroup]="myForm" (ngSubmit)="handle_submit()">
+    <br/>
+    <span>Login</span>
+    <br/>
+    <mat-form-field appearance="outline">
+        <mat-label>email</mat-label>
+        <input matInput placeholder="email" formControlName="email">
+    </mat-form-field>
+    &nbsp;
+
+    <mat-form-field appearance="outline">
+        <mat-label>password</mat-label>
+        <input matInput type="password" placeholder="password" formControlName="password">
+    </mat-form-field>
+    <mat-error *ngIf="isValidError">
+        User name or Password are wrong! Try again
+    </mat-error>
+    <button mat-raised-button>Login</button>
+    <br />
+    <div>
+        <i>for Registered </i>&nbsp;&nbsp;
+        <a href="/register">Sign up</a>
+    </div>
+</form>

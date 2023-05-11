@@ -1,0 +1,24 @@
+<div class="stat">    
+    <h3>in our store</h3>
+    <p>
+        Available 
+        <label>{{countProducts}}</label>
+        products        
+    </p>
+    
+    <p>
+        <label>{{countOrders}}</label>
+        orders submitted
+    </p>
+
+    <p>Welcome to our store !!!</p>
+</div>
+
+<div class="cart" *ngIf="currentCart">
+    <div>Welcome 
+        <label>{{nameUser}}</label>
+    </div>
+    <div>You have open cart from 
+        <label>{{currentCart.date_create | date:"dd/MM/yyyy"}}</label>
+    </div>
+</div>

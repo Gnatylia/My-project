@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <p>Enter quantity?</p>
+  for<mat-label>{{data.name}}</mat-label>
+  <mat-form-field  [formGroup]="myForm">
+    <mat-label>quantity product</mat-label>
+    <input matInput 
+    placeholder="amount"
+    formControlName="amount">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+</div>

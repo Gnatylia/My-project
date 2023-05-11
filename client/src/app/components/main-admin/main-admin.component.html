@@ -1,0 +1,7 @@
+<div class="admin">
+    <div class="form">
+        <app-admin-panel #adminPanel (updateProducts)="refreshProducts()"></app-admin-panel>
+    </div>
+    <app-products-view (onProductSelected)="ProductSelected($event)" #prodView class="products"></app-products-view>
+</div>
+

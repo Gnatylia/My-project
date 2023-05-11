@@ -1,0 +1,6 @@
+<div class="productsview">
+    <app-category-panel (selectCategory)="getProductByCategory($event)"
+    (onLogout)="logout()"></app-category-panel>
+    <app-products (onProductSelected)="productSelected($event)" 
+    [items]="products"></app-products>
+</div>

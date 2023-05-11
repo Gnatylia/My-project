@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Server API</title>
+</head>
+
+<body>
+    <h1>Shopping Server API</h1>
+    <br />
+    <div id="msgSuccess" style="color: darkblue;"></div>
+    <br />
+    <div id="firstTime" style="display: none;">
+        <p>for first Step</p>
+        <form>
+            <legend>Add Admin for Shopping Store</legend><br />
+            <input id="firstName" type="text" placeholder="First Name"><br /><br />
+            <input id="lastName" type="text" placeholder="Last Name"><br /><br />
+            <input id="email" type="text" placeholder="email login"><br /><br />
+            <input id="password" type="password" placeholder="password"><br /><br />
+        </form>
+        <br>
+        <label id="error" style="color: red;"></label>
+        <br><br>
+        <button onclick="AddAdmin()">Create Admin</button>
+        <br>
+        <p id="result"></p>
+    </div>
+
+    <script type="text/javascript">
+        var _firstTime = document.getElementById('firstTime');
+
+        var _msgSuccess = document.getElementById('msgSuccess');
+
+        async function AddAdmin() {
+
+            var _errElem = document.getElementById('error');
+
+            var _user = {};
+            var _formInputs = document.querySelectorAll('form input');
+            for (var i = 0; i < _formInputs.length; i++) {
+                var _elem = _formInputs[i];
+                if (!_elem.value) {
+                    _elem.style.cssText = 'border:1px solid red';
+                    _errElem.innerText = 'fields required';
+                    return;
+                } else {
+                    _elem.style.cssText = 'border:1px solid default'
+                }
+                _user[_elem.id] = _elem.value;
+            }
+            _errElem.innerText = ''; // reset
+
+            console.debug('AddAdmin: _user = ', _user);
+            //return;
+
+            _user.role = 'admin';
+            _user.id = "111";
+            _user.city = 'Jerusalem';
+            _user.street = 'never maind';
+
+            var response = await fetch("/users/register", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(_user)
+            });
+
+            var _result = await response.json();
+            console.debug('AddAdmin: ', _result);
+
+            var _printEl = document.getElementById('result');
+            if (_printEl) {
+                _printEl.innerHTML = JSON.stringify(_result.msg);
+            }
+
+            if (_result.result) {
+                _firstTime.style.display = 'none';
+                msgSuccess.innerHTML = _result.msg;
+            }
+
+        }
+
+        window.addEventListener('load', async function (e) {
+
+            var response = await fetch("/users/chkAdmin");
+            var _result = await response.json();
+            console.debug('AddAdmin: ', _result);
+
+            if (_result.result) {
+                _firstTime.style.display = 'none';
+            } else {
+                _firstTime.style.display = 'block';
+                msgSuccess.innerHTML = "Admin of Shopping System - not found!";
+            }
+
+        }, false);
+    </script>
+
+</body>
+
+</html>

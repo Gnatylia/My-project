@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin: 5px;
+    height: 100vh;
+}
+
+.main > *{
+    height: 500px;
+    border:1px solid silver;
+    margin: 5px;
+    background-color: whitesmoke;
+}
+
+.cart{
+    width: 600px;
+}
+  
+.order{
+    width: 600px;
+}

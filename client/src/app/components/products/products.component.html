@@ -1,0 +1,8 @@
+<div class="products">
+    <ul class="container">
+        <li *ngFor="let product of items">
+            <app-product (click)="selectedProduct(product._id)" [item]="product"></app-product>
+        </li>
+    </ul>
+</div>
+

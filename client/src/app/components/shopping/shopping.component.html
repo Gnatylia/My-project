@@ -1,0 +1,5 @@
+<div class="shop">
+    <app-cart-panel #cartPanel class="cart" [state]="'edit'"></app-cart-panel>
+    <app-products-view  (onProductSelected)="ProductSelected($event)"></app-products-view>
+ 
+</div>

@@ -1,0 +1,63 @@
+<mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="myFirstForm">
+        <form [formGroup]="myFirstForm ">
+            <ng-template matStepLabel>Fill in all your fields</ng-template>
+            
+            ID&nbsp;<mat-form-field appearance="outline">
+                <mat-label>ID number</mat-label>
+                <input matInput placeholder="ID number" formControlName="id">
+                <mat-error *ngIf="myFirstForm.controls['id'].invalid">
+                    {{getErrorMessage(myFirstForm.controls['id'])}}
+                </mat-error>
+            </mat-form-field>
+            &nbsp;
+            
+            Email&nbsp;<mat-form-field appearance="outline">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+              
+            </mat-form-field>
+            
+            Password&nbsp;<mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input matInput placeholder="password" formControlName="password">
+            </mat-form-field>
+            
+            Password Confirm&nbsp;<mat-form-field appearance="outline">
+                <mat-label>passwordConfirm</mat-label>
+                <input matInput type="password" placeholder="passwordConfirm" formControlName="password">
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext type="button">Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="mySecondForm">
+        <form [formGroup]="mySecondForm">
+            <ng-template matStepLabel>Fill in all your fields</ng-template>
+            City&nbsp;<mat-form-field appearance="outline">
+                <mat-label>city</mat-label>
+                <input matInput placeholder="city" formControlName="city">
+            </mat-form-field>
+
+            Street&nbsp;<mat-form-field appearance="outline">
+                <mat-label>street</mat-label>
+                <input matInput placeholder="street" formControlName="street">
+            </mat-form-field>
+            
+            Name&nbsp;<mat-form-field appearance="outline">
+                <mat-label>firstName</mat-label>
+                <input matInput placeholder="firstName" formControlName="firstName">
+            </mat-form-field>
+
+            Last Name&nbsp;<mat-form-field appearance="outline">
+                <mat-label>lastName</mat-label>
+                <input matInput placeholder="lastName" formControlName="lastName">
+            </mat-form-field>
+            <div>
+                <button mat-button (click)="handle_submit()">SUBMIT</button>
+            </div>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>

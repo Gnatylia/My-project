@@ -1,0 +1,16 @@
+.product{
+    margin: 6px;
+    max-width: 22rem;
+    vertical-align: top;
+    padding: 6px;
+    height: 160px;
+    box-shadow: 2px 2px 8px #c0c0c0;
+}
+
+.product > img{
+    width: 100px;
+}
+
+.product > *{
+    align-items: center;
+}

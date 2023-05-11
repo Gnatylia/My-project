@@ -1,0 +1,14 @@
+form { 
+    height: 450px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: whitesmoke;
+    border: 1px solid silver; 
+}
+
+form > input{
+    width: 300px;
+}

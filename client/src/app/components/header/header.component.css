@@ -1,0 +1,41 @@
+.hello{
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    margin: 0 10px;
+}
+
+.hello > div{
+    display: inline-block;
+}
+
+.search{
+    margin: 30px 0 0 40px;
+}
+.search >*{
+    width: 250px;
+    font-size: small;
+    margin: 0 10px;
+}
+
+.search>input{
+    border: 1px solid whitesmoke;
+    height: 24px;
+    border-radius: 4px;
+    padding: 0 4px;
+}
+.storeLable{
+    font-style: oblique;
+    font-stretch: expanded;
+    font-weight: 700;
+    margin-left: 20px;
+    
+}
+.storeLable > a{
+    color: #fff;
+}
+
+a, a:active, a:focus{
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,44 @@
+<div class="pageForm">
+    <form [formGroup]="myForm">
+        <mat-form-field appearance="standard">
+            <mat-label>Product Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        &nbsp;
+       
+        <mat-form-field appearance="standard">
+            <mat-label>Product Price</mat-label>
+            <input matInput formControlName="price">
+        </mat-form-field>
+        
+        <mat-form-field *ngIf="!product"
+            style="padding:0 10px; border: 1px solid silver;">
+            
+            <label matInput for="picUpload">
+                <mat-icon style="cursor: pointer;">folder</mat-icon>
+            </label>     
+            &nbsp;       
+            <input matInput 
+            disabled="disabled" 
+            style="width: 120px;"
+            value="{{selectedFileName}}"
+            >            
+           
+        </mat-form-field>
+
+        <input id="picUpload" *ngIf="!product"
+         style="visibility: hidden;" type="file" placeholder="Picture" accept="image/*"
+            (change)="fileChanged($event)" formControlName="img" name="img">
+
+        <mat-form-field appearance="standard">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="id_category">
+                <mat-option *ngFor="let category of categories" [value]="category.id">
+                    {{category.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button (click)="handle_submit()">{{buttonName}}</button>&nbsp;&nbsp;
+    </form>
+
+</div>

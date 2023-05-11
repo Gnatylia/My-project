@@ -1,0 +1,4 @@
+app-category-panel mat-tab-group .mat-tab-label {
+    min-width: auto;
+}
+

@@ -1,0 +1,20 @@
+<div class="cartpanel">
+    <p class="header">
+        <mat-toolbar>
+          <span>My Cart</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <label *ngIf="state == 'view'">
+             <a href="/shopping">Back to shopping</a>
+        </label>
+        </mat-toolbar>
+    </p>
+    <app-cart 
+        [cartID]="currentCart._id"
+        [cartItems]="filteredCartItems"
+        [total]="currentTotal" [state]="state"
+        (onDeleteCart)="deleteCart($event)" 
+        (onDeleteProductByCart)="removeProduct($event)"
+        *ngIf="currentCart">
+        </app-cart>
+    <app-not-cart *ngIf="!currentCart"></app-not-cart>
+</div>

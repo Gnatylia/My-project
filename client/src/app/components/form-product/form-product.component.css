@@ -1,0 +1,13 @@
+form { 
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.symbol{
+    font-size: 40px;
+    margin-left: 130px;
+}
+

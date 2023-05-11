@@ -1,0 +1,177 @@
+{
+  "id": "340564573",
+  "firstName":"David",
+  "lastName": "Fisher",
+  "password": "123456789",
+  "city": "Jerusalem",
+  "street":"Moshe",
+  "email":"david@gmail.com"
+},
+{
+  "id": "340777854",
+  "firstName":"Kris",
+  "lastName": "Polo",
+  "password": "987654321",
+  "city": "Jerusalem",
+  "street":"Moshe Tov",
+  "email":"krispo@gmail.com"
+  },
+{
+  "id": "340111111",
+  "firstName":"Marta",
+  "lastName": "Pisnek",
+  "password": "998877665",
+  "city": "Jerusalem",
+  "street":"Malcha",
+  "email":"marta@gmail.com"
+},
+{
+  "id": "340565656",
+  "firstName":"Ron",
+  "lastName": "Smith",
+  "password": "112233445",
+  "city": "Tel Aviv",
+  "street":"Rotshild",
+  "email":"smith@gmail.com"
+},
+{
+  "id": "340198273",
+  "firstName":"Olivia",
+  "lastName": "Miller",
+  "password": "666677779",
+  "city": "Tel Aviv",
+  "street":"Rotshild",
+  "email":"olivia@gmail.com",
+  "role":"admin"
+}
+----------------------
+db.cartitems.find().pretty()
+{
+        "_id" : ObjectId("60465dad7db4e1612a7b80a1"),
+        "id_product" : "60367afbe16c2275470c51c1",
+        "amount" : 1,
+        "origin_price" : 30,
+        "id_cart" : "60465dad7db4e1612a7b80a0",
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("60465e867db4e1612a7b80a2"),
+        "id_product" : "6036830ff4d4f607c3314502",
+        "amount" : 1,
+        "origin_price" : 5.25,
+        "id_cart" : "60465dad7db4e1612a7b80a0",
+        "__v" : 0
+}
+> db.carts.find().pretty()
+{
+        "_id" : ObjectId("60465dad7db4e1612a7b80a0"),
+        "isClosed" : false,
+        "id_user" : "340565656",
+        "date_create" : ISODate("2021-03-08T17:23:57.647Z"),
+        "__v" : 0
+}
+--
+ db.users.find({"id":"340565656"}).pretty()
+{
+        "_id" : ObjectId("601a9dc8fab1c67c15669199"),
+        "role" : "user",
+        "id" : "340565656",
+        "firstName" : "Ron",
+        "lastName" : "Smith",
+        "password" : "$2b$09$goB3qx4ryOPu3YBsfHvcq.SfHOU0o5kbkPfeXJlEF7ScHxAMbeg6W",
+        "city" : "Tel Aviv",
+        "street" : "Rotshild",
+        "email" : "smith@gmail.com",
+        "__v" : 0
+}
+
+db.carts.find({id_user: "340565656", isClosed: false }).pretty()
+
+db.cartitems.find({id_cart: "60465dad7db4e1612a7b80a0"}).pretty()
+
+db.cartitems.find({id_cart:"605f64c45fde606556e6a758"})
+db.products.find({_id: ObjectId("60465e867db4e1612a7b80a2")}).pretty()
+
+// "id_product" : "60367afbe16c2275470c51c1"
+// "id_product" : "6036830ff4d4f607c3314502"
+db.products.find({_id:["60367afbe16c2275470c51c1","6036830ff4d4f607c3314502"]}).pretty()
+=========================
+db.products.find({
+  "_id" : {
+    "$in" : 
+      [
+        ObjectId("60367afbe16c2275470c51c1"), 
+        ObjectId("6036830ff4d4f607c3314502")
+      ]
+   }
+});
+
+db.products.find({
+  "_id" : {
+    "$in" : 
+      [
+        60367afbe16c2275470c51c1, 
+        6036830ff4d4f607c3314502
+      ]
+   }
+});
+===========================
+result: {_id: "60465dad7db4e1612a7b80a0", id_user: "340565656", date_create: "2021-03-08T17:23:57.647Z",…}
+date_create: "2021-03-08T17:23:57.647Z"
+id_user: "340565656"
+isClosed: false
+items: [,…]
+_id: "60465dad7db4e1612a7b80a0"
+
+==================
+db.cartitems.find({id_cart:"6050753a11c77b5ea97b8d76"}).pretty()
+
+==================
+{
+        "_id" : ObjectId("6058c22f7f5bc45de512405b"),
+        "id_user" : "601a9dc8fab1c67c15669199",
+        "sum" : 145,
+        "city" : "Tel Aviv",
+        "street" : "Rotshild",
+        "date_send" : ISODate("2021-03-12T00:00:00Z"),
+        "date_order" : ISODate("2021-03-12T00:00:00Z"),
+        "id_cart" : "6051dff3dbbfdc62d4ea4803",
+        "credit_card" : 2234,
+        "__v" : 0
+}
+=======================
+db.orders.count({"date_send":"2021-03-12T00:00:00Z"})
+
+db.orders.count({"date_send":ISODate("2021-03-12T00:00:00Z")})
+
+db.orders.find().pretty()
+
+db.orders.aggregate( [ 
+  {
+    $sort:{ date_send : 1 }
+  }, 
+  {
+    $group: {       
+       _id: { date_send: "$date_send"},
+       count: { $sum: 1 }
+    }
+  }
+] )
+
+//================
+db.orders.find().pretty()
+
+db.orders.aggregate( [ 
+  {
+    $sort:{ date_send : 1 }
+  },
+  {
+    $group: {       
+       _id: { $dateToString: { format: "%Y-%m-%d", date: "$date_send" }},
+       orders: { $sum: 1 }
+    }
+  }
+] )
+https://docs.mongodb.com/manual/reference/operator/aggregation/group/
+
+db.carts.find({_id:ObjectId("605f912e68f89f7afb357e75")}).pretty()

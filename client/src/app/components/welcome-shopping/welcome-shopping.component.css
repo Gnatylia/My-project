@@ -1,0 +1,12 @@
+.shopping{
+    margin-top:auto;
+    margin-bottom:auto;
+    text-align:center;
+    line-height: 2em;
+    padding: 10px;
+    font-size: 1.6em;
+}
+
+.shopping p{
+    color:orange;
+}

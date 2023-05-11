@@ -1,0 +1,19 @@
+.info{
+    margin-top:auto;
+    margin-bottom:auto;
+    text-align:center;
+    line-height: 3em;
+    padding: 10px;
+}
+
+.head{
+    font-size: x-large;
+    font-style: italic;
+    color: orange;
+}
+
+p{
+    font-style: oblique;
+    font-stretch: expanded;
+    font-weight: 900;
+}

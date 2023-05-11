@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>קנייתך בוצעה בהצלחה</h1>
+<div mat-dialog-content>
+    <label>להורדת הקבלה לחץ</label>
+    &nbsp;
+    <a href="{{data}}" target="_blank" download="order">כאן</a>
+  </div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close
+  (click)="goToMain()">אישור</button>
+</div>

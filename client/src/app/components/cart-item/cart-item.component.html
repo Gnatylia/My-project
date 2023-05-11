@@ -1,0 +1,13 @@
+<div class="itemCart">
+    <div>
+        <img src="{{itemCart.img}}">
+        <h3>{{itemCart.name}}</h3>       
+        &nbsp;
+        <div>{{itemCart.origin_price}}&#8362;</div>
+        &nbsp;
+        <div>{{itemCart.amount}}</div>
+    </div>
+    <button *ngIf="state == 'edit'" class="btnRemove" (click)="removeProduct(itemCart._id)"
+    >X</button>
+    
+</div>

@@ -1,0 +1,45 @@
+[
+    {
+        "_id" : ObjectId("60255b5c5c44db576124bc91"),
+        "name" : "product yellow",
+        "price" : 10,
+        "img" : "https://res.cloudinary.com/shufersal/image/upload/f_auto,q_auto/v1551800922/prod/product_images/products_large/HON50_L_P_7296073320524_1.png",
+        "id_category" : 1,
+        "__v" : 0
+}
+> db.products.find().pretty()
+{
+        "_id" : ObjectId("60255b5c5c44db576124bc91"),
+        "name" : "product yellow",
+        "price" : 10,
+        "img" : "https://res.cloudinary.com/shufersal/image/upload/f_auto,q_auto/v1551800922/prod/product_images/products_large/HON50_L_P_7296073320524_1.png",
+        "id_category" : 1,
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("60255b7e5c44db576124bc92"),
+        "name" : "product second",
+        "price" : 20,
+        "img" : "https://res.cloudinary.com/shufersal/image/upload/f_auto,q_auto/v1551800922/prod/product_images/products_large/HON50_L_P_7296073320524_1.png",
+        "id_category" : 1,
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("60255b905c44db576124bc93"),
+        "name" : "test product",
+        "price" : 20,
+        "img" : "https://res.cloudinary.com/shufersal/image/upload/f_auto,q_auto/v1551800922/prod/product_images/products_large/HON50_L_P_7296073320524_1.png",
+        "id_category" : 2,
+        "__v" : 0
+},
+{
+        "fieldname": "img",
+        "originalname": "Organic avocado.png",
+        "encoding": "7bit",
+        "mimetype": "image/png",
+        "destination": "/home/julia/Projects/Angular/Shopping/Server/images/",
+        "filename": "Organic avocado.png",
+        "path": "/home/julia/Projects/Angular/Shopping/Server/images/Organic avocado.png",
+        "size": 19360
+        }
+]

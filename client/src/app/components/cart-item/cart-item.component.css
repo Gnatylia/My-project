@@ -1,0 +1,24 @@
+.itemCart{
+    border: 1px solid silver;
+    position: relative;
+    height: 76px;
+    /* display: flex; */
+
+    }
+
+.itemCart img{
+    width: 60px;
+}
+
+.itemCart div, .itemCart h3 {
+    display: inline-block;
+    font: Comic Sans MS
+}
+
+.itemCart .btnRemove {
+    /* display: inline-block; */
+    float: right;
+    border-radius: 15px;
+    border: 1px solid silver;
+}
+

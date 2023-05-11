@@ -1,0 +1,9 @@
+<div class="adminpanel">
+    <app-admin-header (addProduct)="openForm()"></app-admin-header>
+    <app-admin-welcome *ngIf="isWelcome"></app-admin-welcome>
+    <app-form-product *ngIf="!isWelcome" [product]="selectedProduct"
+    (onSavedProduct)="closeForm()"></app-form-product>
+    
+</div>
+
+
